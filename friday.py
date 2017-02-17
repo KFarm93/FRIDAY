@@ -13,7 +13,7 @@ class Sentient(object):
 
     def converse(self, thisUser):
         print "======================================================================================"
-        print ">>Friday initializing..."
+        print ">>FRIDAY initializing..."
         # print "======================================================================================"
         time.sleep(1)
         # print ">>Hello, %s! You are %s, aren't you?" % (thisUser.name, thisUser.name)
@@ -141,10 +141,14 @@ class Sentient(object):
                 print "======================================================================================"
                 print ">>Opening Postgres."
                 os.system("open /Applications/Postgres.app")
+            elif input2 == 'terminal':
+                print "======================================================================================"
+                print ">>Opening new Terminal window."
+                os.system("open /Applications/Terminal.app")
             elif input2 == 'exit':
                 satisfied = 'true'
                 print "======================================================================================"
-                print ">>Friday shutting down."
+                print ">>FRIDAY shutting down."
                 print "======================================================================================"
                 sys.exit()
             else:
@@ -158,8 +162,8 @@ class Sentient(object):
             print "======================================================================================"
 
 
-Friday = Sentient('Friday', 'true', 'false')
+FRIDAY = Sentient('FRIDAY', 'true', 'false')
 Kevin = Sentient('Kevin', 'false', 'true')
 thisUser = Kevin
 
-Friday.converse(thisUser)
+FRIDAY.converse(thisUser)
