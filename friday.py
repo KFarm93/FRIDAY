@@ -161,6 +161,12 @@ class Sentient(object):
                 print "======================================================================================"
                 print ">>Opening Postgres."
                 os.system("open /Applications/Postgres.app")
+            elif input2 == 'atom':
+                print "======================================================================================"
+                print ">>Opening Atom."
+                os.system("open /Applications/Atom.app")
+
+            # exit
             elif input2 == 'exit':
                 satisfied = 'true'
                 print "======================================================================================"
