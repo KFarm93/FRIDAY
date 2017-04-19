@@ -51,7 +51,7 @@ class Sentient(object):
 
         # if thisUser.program == 'false':
         print "======================================================================================"
-        print ">>How may I help you today, %s?" % (thisUser.name)
+        print ">>How may I help you, %s?" % (thisUser.name)
         os.system('say -v Vicki How may I help you, Kevin?')
         # print ">>(examples: google, linkedin, github, youtube, exit)"
         print "======================================================================================"
