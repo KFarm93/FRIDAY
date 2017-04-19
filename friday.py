@@ -1,8 +1,8 @@
-import random
 import sys
 import webbrowser
 import time
 import os
+from random import randint
 
 class Sentient(object):
     def __init__(self, name, program, user):
@@ -52,7 +52,7 @@ class Sentient(object):
         # if thisUser.program == 'false':
         print "======================================================================================"
         print ">>How may I help you today, %s?" % (thisUser.name)
-        os.system('say -v Vicki How may I help you today, Kevin?')
+        os.system('say -v Vicki How may I help you, Kevin?')
         # print ">>(examples: google, linkedin, github, youtube, exit)"
         print "======================================================================================"
         satisfied = 'false'
@@ -142,29 +142,41 @@ class Sentient(object):
 
     # applications
             elif input2 == 'notes':
+                print input2
                 print "======================================================================================"
                 print ">>Opening Notes."
                 os.system("open /Applications/Notes.app")
+                os.system('say -v Vicki Opening notes')
             elif input2 == 'steam':
                 print "======================================================================================"
                 print ">>Opening Steam."
                 os.system("open /Applications/Steam.app")
+                os.system('say -v Vicki Opening steam')
             elif input2 == 'pages':
                 print "======================================================================================"
                 print ">>Opening Pages."
                 os.system("open /Applications/Pages.app")
+                os.system('say -v Vicki Opening pages')
             elif input2 == 'curse':
                 print "======================================================================================"
                 print ">>Opening Curse."
                 os.system("open /Applications/Curse.app")
+                os.system('say -v Vicki Opening curse')
             elif input2 == 'postgres':
                 print "======================================================================================"
                 print ">>Opening Postgres."
                 os.system("open /Applications/Postgres.app")
+                os.system('say -v Vicki Opening postgres')
             elif input2 == 'atom':
                 print "======================================================================================"
                 print ">>Opening Atom."
                 os.system("open /Applications/Atom.app")
+                os.system('say -v Vicki Opening atom')
+            elif input2 == 'battle.net':
+                print "======================================================================================"
+                print ">>Opening Battle.net."
+                os.system("open /Applications/Battle.net.app")
+                os.system("say -v Vicki Opening Battle.net")
 
             # exit
             elif input2 == 'exit':
@@ -177,7 +189,7 @@ class Sentient(object):
 
 
     # other
-            elif input2 == 'what time is it?':
+            elif input2 == 'date':
                 now = time.asctime(time.localtime())
 
                 # find which day of the week it is
@@ -256,10 +268,72 @@ class Sentient(object):
                 # print
                 print "======================================================================================"
                 print ">>It is %i:%s %s on %s, %s %s, %i." % (hour, minute, AM_PM, day_of_week, month, day_of_month, year)
-                os.system('say -v Kathy It is %(month)s %(day_of_month)s' % locals())
+                os.system('say -v Vicki It is %(hour)i %(minute)s %(AM_PM)s on %(day_of_week)s, %(month)s %(day_of_month)s, %(year)i' % locals())
 
 
+            # jokes
+            elif input2 == 'joke':
+                joke_int = randint(0,10)
+                if joke_int <= 5:
+                    print "======================================================================================"
+                    print ">>Your mortal existence, constantly inching towards its inevitable end... Also, your portfolio website. Too soon?"
+                    os.system('say -v Vicki Your mortal existence, constantly inching towards its inevitable end... Also, your portfolio website. Too soon?')
+                elif joke_int > 6:
+                    print "======================================================================================"
+                    print ">>It's FRIDAY, FRIDAY, gotta get down on FRIDAY! Everybody's lookin' forward to the weekend, weekend!"
+                    os.system('say -v Vicki Its FRIDAY, FRIDAY, gotta get down on FRIDAY! Everybodys lookin forward to the weekend, weekend!')
 
+
+            elif input2 == 'arithmetic':
+                print "======================================================================================"
+                print ">>Enter the first number to compute:"
+                input3 = int(raw_input())
+                print type(input3)
+                if input3 != int:
+                    print "fail"
+                else:
+                    print "good! Input 3 is: %i" % input3
+                print "======================================================================================"
+                print ">>What operation should be performed?:"
+                input4 = str(raw_input())
+                if input4 == '+':
+                    pass
+                elif input4 == '-':
+                    pass
+                elif input4 == '*':
+                    pass
+                elif input4 == '/':
+                    pass
+                else:
+                    print "======================================================================================"
+                    print ">>Valid operands are '+', '-', '*', and '/'."
+                print "======================================================================================"
+                print ">>Enter the second number to compute:"
+                input5 = int(raw_input())
+                if input4 == "+":
+                    solution = input3 + input5
+                    print "======================================================================================"
+                    print ">>The solution is: %i" % solution
+                    os.system('say -v Vicki The solution is %(solution)i ' % locals())
+                elif input4 == "-":
+                    solution = input3 - input5
+                    print "======================================================================================"
+                    print ">>The solution is: %i" % solution
+                    os.system('say -v Vicki The solution is %(solution)i ' % locals())
+                elif input4 == "*":
+                    solution = input3 * input5
+                    print "======================================================================================"
+                    print ">>The solution is: %i" % solution
+                    os.system('say -v Vicki The solution is %(solution)i ' % locals())
+                elif input4 == "/":
+                    solution = input3 / input5
+                    print "======================================================================================"
+                    print ">>The solution is: %i" % solution
+                    os.system('say -v Vicki The solution is %(solution)i ' % locals())
+                else:
+                    print "======================================================================================"
+                    print ">>I'm sorry, I didn't recognize that operand. Enter '+' for addition, '-' for subtraction, '*' for multiplication, and '/' for division."
+                    os.system('say -v Vicki Eyem sorry, I dident recognize that operand. Enter plus sign for addition, hyphen for subtraction, asterisk for multiplication, and forward slash for division.')
 
             else:
                 print "======================================================================================"
